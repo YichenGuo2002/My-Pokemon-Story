@@ -78,8 +78,6 @@ An Example Pokémon:
 
 ## Wireframes
 
-(__TODO__: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc.)
-
 /all - page for showing all saved Pokémons 
 
 ![all](documentation/all.jpg)
@@ -98,13 +96,9 @@ An Example Pokémon:
 
 ## Site map
 
-(__TODO__: draw out a site map that shows how pages are related to each other)
-
-Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia/commons/2/20/Sitemap_google.jpg), but you can create one without the screenshots, drop shadows, etc. ... just names of pages and where they flow to.
+![site map](documentation/map.png)
 
 ## User Stories or Use Cases
-
-(__TODO__: write out how your application will be used through [user stories](http://en.wikipedia.org/wiki/User_story#Format) and / or [use cases](https://en.wikipedia.org/wiki/Use_case))
 
 1. as non-registered user, I can browse and see the Pokémon database
 2. as non-registered user, I can register a new account with the site
