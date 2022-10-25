@@ -82,19 +82,19 @@ An Example Pokémon:
 
 /all - page for showing all saved Pokémons 
 
-![all](documentation/all.png)
+![all](documentation/all.jpg)
 
 /new - page for creating a personalized Pokémon
 
-![new](documentation/new.png)
+![new](documentation/new.jpg)
 
 /list - page for showing all lists
 
-![list](documentation/list.png)
+![list](documentation/list.jpg)
 
 /journey - page for creating Pokémon stories and exporting them
 
-![journey](documentation/journey.png)
+![journey](documentation/journey.jpg)
 
 ## Site map
 
