@@ -1,0 +1,58 @@
+<!Doctype>
+<html>
+    <head>
+        {{{_sections.head}}}
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+        <link rel="icon" href="../public/image/logo2.png">
+        <link rel="stylesheet"  href="../public/css/layout.css">
+    </head>
+
+<body>
+
+     <nav>
+        <div id = "logoPlace">
+            <img src = "../public/image/logoTransparent.png" alt = "logo" id = "logoNav"/>
+        </div>
+        <div id = "searchBar">
+             <form method = "GET" action = "/search">
+                    <div><input type="text" name = "pokeName" class="form-control" id="inputPokemon" placeholder="Search Pokémon"></div>       
+                    <div><button type="submit" class="submitButton">Submit</button></div>
+            </form>
+        </div>
+        <div id = "userPanel">
+            <div><h3><a href="login">Log in</a></h3></div>
+            <div><h3><a href="new">Sign up</a></h3></div>
+        </div>
+    </nav>
+
+    <section>
+        {{{body}}}
+    </section>
+
+    <footer>
+        <hr style = "margin:0; padding:0;" />
+        <h5 class="footer-text">
+            <img src = "../public/image/logoTransparent.png" alt = "logo" id = "logoFooter"/>
+            With My Pokémon Story, you can keep and browse your favorite Pokémon memories.<br/>
+            Contact Us<br/>
+            Cookie Policy<br/>
+            Privacy Policy<br/>
+            Site Map<br/>
+            <br/>
+            Social Sharing<br/>
+            <br/>
+            Keep our dreams<br/>
+            ©My Pokémon Story, Site by Eathen<br/>
+            <a href = "www.yichenguo.com">Contact</a> for Legal Reasons
+        </h5>
+    </footer>
+
+    {{{_sections.footer}}}
+
+</body>
+</html>
