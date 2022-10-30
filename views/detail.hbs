@@ -6,14 +6,18 @@
 
     <div><input type="text" id = "searchIpt" name = "pokeName" class="form-control" id="inputPokemon" placeholder="Search Pokémon"></div>       
     <div><button type="submit" id = "searchBtn" class="submitButton">Submit</button></div>
-    <img id = "pimage" src="">
-    <p>
-    Name: <div id = "pname"> </div> <br>
-    Id:   <div id = "pid"> </div> <br>
-    Type:   <div id = "ptype"> </div> <br>
-    Weight: <div id = "pweight"> </div> <br>
-    </p>
-    
+    <div id = "allresult">
+        <div id = "result">
+            <img id = "pimage" src="">
+            <p>
+            Name: <span id = "pname"> </span> <br>
+            Id:   <span id = "pid"> </span> <br>
+            Type:   <span id = "ptype"> </span> <br>
+            Weight: <span id = "pweight"> </span> <br>
+            </p>
+        </div>
+        <div id = "noResult"></div>
+    </div>
 
 {{#section 'footer'}}
     <script src="../public/js/detail.js"></script>

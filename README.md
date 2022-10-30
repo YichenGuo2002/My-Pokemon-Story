@@ -133,6 +133,6 @@ An Example Pokémon:
 
 ## Annotations / References Used
 
-1. [passport.js authentication docs](http://passportjs.org/docs) - (add link to source code that was based on this)
-2. [tutorial on vue.js](https://vuejs.org/v2/guide/) - (add link to source code that was based on this)
+1. [jw-paginate.js pagination algorithm](https://jasonwatmore.com/post/2018/08/07/javascript-pure-pagination-logic-in-vanilla-js-typescript) - (added pagination to /all pokemon page based on this algorithm)
+2. 
 
