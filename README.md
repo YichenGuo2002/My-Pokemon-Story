@@ -129,6 +129,13 @@ An Example Pokémon:
 
  13 points total out of 8 required points 
 
+## Progress currently Made:
+* Connected to PokeAPI to access Pokemon information. Applied results on /all and /detail page.
+* Researched Pagination algorithms and applied jw-paginate.js on /all page.
+* Researched about making requests and passing query strings to webpages. Successfully passed parameters (pokemon id and subpage id) through website url.
+* Researched about handlebars.js section-helper to help connect each page with their individual css and js file.
+* Researched about importing js modules. (failed, was not able to connect modules. So I copied and pasted the entire function into my js file. Need further inspection.)
+
 ## [Link to Initial Main Project File](app.mjs) 
 
 ## Annotations / References Used

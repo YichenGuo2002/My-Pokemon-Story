@@ -4,6 +4,8 @@
     "express-session": "^1.17.3",
     "hbs": "^4.2.0",
     "jw-paginate": "^1.0.4",
+    "mongoose": "^6.7.0",
+    "mongoose-slug-plugin": "^2.1.0",
     "nodemon": "^2.0.20",
     "path": "^0.12.7",
     "url": "^0.11.0"
