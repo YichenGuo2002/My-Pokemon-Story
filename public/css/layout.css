@@ -34,6 +34,7 @@ nav{
 }
 
 #searchBar{
+    width: 40%;
     display: inline-block;
     justify-content: center;
     align-items: center; 
@@ -45,8 +46,8 @@ nav{
 }
 
 #searchBar input{
-    margin-top: auto;
-    margin-bottom: auto;
+    float: left;
+    width: auto;
     padding: 6px;
     font-size: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -57,7 +58,8 @@ nav{
     margin-top: auto;
     margin-bottom: auto;
     padding: 6px;
-    font-size: 20px;
+    font-size: 20px; 
+    float:right;
 }
 
 #userPanel{
@@ -94,8 +96,16 @@ footer{
     float:bottom;
     height: 200px;
     background-color: var(--main-background-color);
+}
+
+footer-content{
     display: flex;
     justify-content: space-around;
+    flex-direction: row;
+}
+
+footer-content div{
+    margin: auto;
 }
 
 #logoFooter{

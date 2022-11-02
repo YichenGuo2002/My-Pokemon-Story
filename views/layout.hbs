@@ -13,17 +13,17 @@
 
      <nav>
         <div id = "logoPlace">
-            <img src = "../public/image/logo.png" alt = "logo" id = "logoNav"/>
+            <a href = "/"><img src = "../public/image/logo.png" alt = "logo" id = "logoNav"/></a>
         </div>
         <div id = "searchBar">
-             <form method = "GET" action = "/search">
-                    <div><input type="text" name = "pokeName" class="form-control" id="inputPokemon" placeholder="Search Pokémon"></div>       
-                    <div><button type="submit" class="submitButton">Submit</button></div>
+             <form action = "/detail" method = "GET">
+                    <div><input type="text" name = "pId" class="form-control" id="searchInput" placeholder="Search Pokémon"></div>       
+                    <div><button type="submit" id="searchButton">Submit</button></div>
             </form>
         </div>
         <div id = "userPanel">
             <div><h3><a href="login">Log in</a></h3></div>
-            <div><h3><a href="new">Sign up</a></h3></div>
+            <div><h3><a href="register">Sign up</a></h3></div>
         </div>
     </nav>
 
@@ -33,22 +33,29 @@
 
     <footer>
         <hr style = "margin:0; padding:0;" />
-        <h5 class="footer-text">
-            <img src = "../public/image/logo.png" alt = "logo" id = "logoFooter"/>
-            With My Pokémon Story, you can keep and browse your favorite Pokémon memories.<br/>
-            Contact Us<br/>
-            Cookie Policy<br/>
-            Privacy Policy<br/>
-            Site Map<br/>
-            <br/>
-            Social Sharing<br/>
-            <br/>
-            Keep our dreams<br/>
-            ©My Pokémon Story, Site by Eathen<br/>
-            <a href = "www.yichenguo.com">Contact</a> for Legal Reasons
-        </h5>
+        <div class="footer-content">
+            <div>
+                <img src = "../public/image/logo.png" alt = "logo" id = "logoFooter"/>
+            </div>
+            <div>
+                <h5>
+                With My Pokémon Story, you can keep and browse your favorite Pokémon memories.<br/>
+                Contact Us<br/>
+                Cookie Policy<br/>
+                Privacy Policy<br/>
+                Site Map<br/>
+                <br/>
+                Social Sharing<br/>
+                <br/>
+                Keep our dreams<br/>
+                ©My Pokémon Story, Site by Eathen<br/>
+                <a href = "www.yichenguo.com">Contact</a> for Legal Reasons
+                </h5>
+            </div>
+        </div>
     </footer>
 
+    <script src="../public/js/layout.js"></script>
     {{{_sections.footer}}}
 
 </body>
