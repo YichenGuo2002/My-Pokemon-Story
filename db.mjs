@@ -6,30 +6,33 @@ import mongooseSlugPlugin from 'mongoose-slug-plugin';
 
 // TODO: add schemas
 const PokemonSchema = new mongoose.Schema({
-    name:{type: String, required: true}
+    user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    name:{type: String, required: true},
+    pId:{type:Number, required:true}
 })
 
 const ListSchema = new mongoose.Schema({
-    user: {type:mongoose.Schema.Types.ObjectId, ref: 'User'},
+    user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     title:{type: String, required: true},
-    pokemons:[PokemonSchema],
+    pokemons:{type:[PokemonSchema], unique:false}, 
     //Array of Pokemon objects
-    description:{type: String, required: false},
+    description:{type: String, required:false},
 });
 
 const UserSchema = new mongoose.Schema({
-    username:{type: String, required: true},
-    email:{type: String, required: true},
+    firstName:{type: String, required: true},
+    lastName:{type: String, required: true},
+    email:{type: String, required: true, unique:true},
     password:{type: String, unique: true, required:true},
-    list:[ListSchema]
+    //Add unique:false to make sure this variable is not used as unique index and can be equal.
+    untitledList:{type:Number},
+    list:{type:[ListSchema], unique:false}
 });
 
-
 // TODO: configure plugin
-UserSchema.plugin(mongooseSlugPlugin, {tmpl: '<%=username%>'});
-ListSchema.plugin(mongooseSlugPlugin, {tmpl: '<%=title%>'});
+//UserSchema.plugin(mongooseSlugPlugin, {tmpl: '<%=username%>'});
+ListSchema.plugin(mongooseSlugPlugin, {tmpl: '<%=_id%>'});
 PokemonSchema.plugin(mongooseSlugPlugin, {tmpl: '<%=name%>'});
-
 
 //this plugin will autogenerate a slug field (no need to explicitly add it to your schema)
 //a slug is a string that serves as a short, human readable name

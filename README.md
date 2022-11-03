@@ -8,7 +8,7 @@ The My Pokémon Story app will let you keep those memories. This app can really 
 
 ![Pokémon World](https://www.opticflux.com/wp-content/uploads/2021/11/Pokemon_UNITE___Team_Up._Take_Down.___Screenshot_1.0.jpeg)
 
-Technical tools: Javascript, Express, HTML, CSS
+Technical tools: Javascript, Express, Handlebars.js, CSS, MongoDB, Web API
 
 ## Data Model
 

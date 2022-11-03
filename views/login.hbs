@@ -1,17 +1,29 @@
-<h2>Login</h2>
+{{#section 'head'}}
+    <title>Login - My Pokémon Story</title>
+    <link rel="stylesheet" href="../public/css/password.css">
+{{/section}}
+
+
+<h2>Account Login</h2>
 {{#if message}}
 <div class="error">{{ message }}</div>
 {{/if}}
-<form method="POST" action="login">
+<form method="POST" action="/login">
 	<div>
-		<label for="username">Username:</label>
-		<input type="text" name="username" value="">
+		<input type="email" name="email" value="" placeholder="Email">
 	</div>
 	<div>
-		<label for="password">Password:</label> 
-		<input type="password" name="password" value="">
+		<input type="password" name="password" value="" placeholder="Password">
 	</div>
 	<div>
-		<input type="submit" value="Login">
+		<input type="submit" value="LOGIN">
+	</div>
+	<div>
+		<a href = "find"><p>Forget Your Password?</p></a>
+		<a href = "register"><p>Create New Account</p></a>
 	</div>
 </form>
+
+{{#section 'footer'}}
+    <script src="../public/js/password.js"></script>
+{{/section}}

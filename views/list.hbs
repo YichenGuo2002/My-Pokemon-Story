@@ -1,0 +1,23 @@
+{{#section 'head'}}
+    <title>List - My Pokémon Story</title>
+    <link rel="stylesheet" href="../public/css/list.css">
+{{/section}}
+<h3>My Pokémon Lists</h3>
+<button id = "createList">Create a new list</button>
+
+<ol id = "displayList">
+    {{#each list as |l|}}
+    <li><a href=/journey/{{slug}}>{{title}}</a></li>
+    {{/each}}
+    <!-- <form method = "POST" action = "/addList">
+        <input type="text" name="listTitle" placeholder="Title">
+        <input type = "submit" value = "Create new empty list">
+    </form> -->
+</ol>
+
+<form method = "POST" action = "/list">
+    <input type="submit" value="SIGN OUT">
+</form>
+{{#section 'footer'}}
+    <script src="../public/js/list.js"></script>
+{{/section}}

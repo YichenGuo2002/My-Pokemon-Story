@@ -22,8 +22,11 @@
             </form>
         </div>
         <div id = "userPanel">
-            <div><h3><a href="login">Log in</a></h3></div>
-            <div><h3><a href="register">Sign up</a></h3></div>
+            {{#if user}}
+			<h3>Logged in as:  <a href = "list">{{user.firstName}}</a></h3>
+			{{else}}
+	        <h3><a href="login">Log in</a></h3>
+			{{/if}}
         </div>
     </nav>
 
@@ -39,7 +42,7 @@
             </div>
             <div>
                 <h5>
-                With My Pokémon Story, you can keep and browse your favorite Pokémon memories.<br/>
+                With ©My Pokémon Story, you can keep and browse your favorite Pokémon memories.<br/>
                 Contact Us<br/>
                 Cookie Policy<br/>
                 Privacy Policy<br/>
@@ -49,7 +52,7 @@
                 <br/>
                 Keep our dreams<br/>
                 ©My Pokémon Story, Site by Eathen<br/>
-                <a href = "www.yichenguo.com">Contact</a> for Legal Reasons
+                <a href = "https://www.yichenguo.com/">Contact</a> for Legal Reasons
                 </h5>
             </div>
         </div>

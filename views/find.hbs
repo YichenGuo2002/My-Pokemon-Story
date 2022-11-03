@@ -1,0 +1,24 @@
+{{#section 'head'}}
+    <title>Find - My Pokémon Story</title>
+    <link rel="stylesheet" href="../public/css/password.css">
+{{/section}}
+
+<h2>Recover Password</h2>
+{{#if message}}
+<div class="error">{{ message }}</div>
+{{/if}}
+<form method="POST" action="/find">
+	<div>
+		<input type="email" name="email" value="" placeholder="Email">
+	</div>
+	<div>
+		<input type="submit" value="FIND MY PASSWORD">
+	</div>
+	<div>
+		<a href = "login"><p>Back to Login</p></a>
+	</div>
+</form>
+
+{{#section 'footer'}}
+    <script src="../public/js/password.js"></script>
+{{/section}}

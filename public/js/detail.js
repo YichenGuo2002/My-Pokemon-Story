@@ -24,6 +24,7 @@ const findP = async function(id = 1){
     if(pokemon){
         document.getElementById('pimage').src = `https://static.pokemonpets.com/images/monsters-images-300-300/${pokemon['id']}-${pokemon['name']}.webp`;
         document.getElementById('pname').innerText = toAddUpperCase(pokemon['name']);
+        document.title = toAddUpperCase(pokemon['name']) + " - My Pokémon Story";
         document.getElementById('pid').innerText = pokemon['id'];
         document.getElementById('ptype').innerText = pokemon['types'].reduce((typeString, eachType) => {
             return typeString + toAddUpperCase(eachType['type']['name']) + ` `;

@@ -6,12 +6,12 @@ const User = mongoose.model('User');
 
 const startAuthenticatedSession = (req, user, cb) => {
   // TODO: implement startAuthenticatedSession
-  req.session.regenerate(function(err) {
+  req.session.regenerate((err) => {
     if(!err){
       req.session.user = user;
     }
     else{
-      console.log("ERROR", err);
+      console.log("Error starting authentication session:", err);
     }
     cb(err);
   });
@@ -25,21 +25,24 @@ const endAuthenticatedSession = (req, cb) => {
 };
 
 
-const register = (username, email, password, errorCallback, successCallback) => {
+const register = (firstName, lastName, email, password, errorCallback, successCallback) => {
   // TODO: implement register
   let errObj;
 
-  if(username.length >= 8 && password.length >= 8){
-    User.findOne({username: username}, (err, result) => { 
+  if(password.length >= 8){
+    User.findOne({email: email}, (err, result) => { 
       if(!result){
         bcrypt.genSalt(10, function(err, salt) {
           //We can use a default value of 10 for salt rounds 
           bcrypt.hash(password, salt, function(err, hash) {
               if(!err){
                 const user = new User({
-                username: username,
+                firstName: firstName,
+                lastName: lastName,
                 email:email,
-                password:hash
+                password:hash,
+                untitledList:0,
+                list:[]
                 });
                 user.save((err, userObj) => {
                   if(!err){
@@ -64,7 +67,7 @@ const register = (username, email, password, errorCallback, successCallback) => 
       }
       else{
         errObj = {
-          message:'USERNAME ALREADY EXISTS'
+          message:'EMAIL ALREADY EXISTS'
         };
         errorCallback(errObj);
       }
@@ -73,14 +76,14 @@ const register = (username, email, password, errorCallback, successCallback) => 
   }
   else{
     errObj = {
-      message:'USERNAME PASSWORD TOO SHORT'
+      message:'PASSWORD TOO SHORT'
     };
     errorCallback(errObj);
   }
 };
 
-const login = (username, password, errorCallback, successCallback) => {
-  User.findOne({username: username}, (err, user) => {
+const login = (email, password, errorCallback, successCallback) => {
+  User.findOne({email: email}, (err, user) => {
     let errObj;
     if (!err && user) {
       //then check if the password entered matches the password in the database
@@ -90,7 +93,7 @@ const login = (username, password, errorCallback, successCallback) => {
         //note that passwordMatch within the callback will be either true or false, 
         //signifying whether or not the salted and hashed version of the incoming password 
         //matches the one stored in the database
-        if(!err & passwordMatch){
+        if(!err && passwordMatch){
           successCallback(user);
         }
         else{
