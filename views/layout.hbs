@@ -3,55 +3,48 @@
     <head>
         {{{_sections.head}}}
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width = device-width, initial-scale = 1.0">
 
         <link rel="icon" href="../public/image/logo2.png">
         <link rel="stylesheet"  href="../public/css/layout.css">
     </head>
 
 <body>
+        <nav>
+            <div id = "logoPlace">
+                <a href = "/"><img src = "../public/image/logo.png" alt = "logo" id = "logoNav"/></a>
+            </div>
+            <div id = "searchBar">
+                <form action = "/detail" method = "GET">
+                        <input type="text" name = "pId" class="form-control" id="searchInput" placeholder="Search Pokémon">
+                        <button type="submit" id="searchButton"><img src="../public/image/icon/search.png" class = "icon"></button>
+                </form>
+            </div>
+            <div id = "userPanel">
+                <a href="all"><h3>Pokémon</h3></a>
+                <a href="fyp"><h3>Community</h3></a>
+                {{#if user}}
+                <a href = "list"><img src="../public/image/icon/user.png" class = "icon"></a>
+                {{else}}
+                <a href="login"><img src="../public/image/icon/user.png" class = "icon"></a>
+                {{/if}}
+            </div>
+        </nav>
 
-     <nav>
-        <div id = "logoPlace">
-            <a href = "/"><img src = "../public/image/logo.png" alt = "logo" id = "logoNav"/></a>
-        </div>
-        <div id = "searchBar">
-             <form action = "/detail" method = "GET">
-                    <div><input type="text" name = "pId" class="form-control" id="searchInput" placeholder="Search Pokémon"></div>       
-                    <div><button type="submit" id="searchButton">Submit</button></div>
-            </form>
-        </div>
-        <div id = "userPanel">
-            {{#if user}}
-			<h3>Logged in as:  <a href = "list">{{user.firstName}}</a></h3>
-			{{else}}
-	        <h3><a href="login">Log in</a></h3>
-			{{/if}}
-        </div>
-    </nav>
-
+    <div style = "height: 85px;"></div>
+    
     <section>
         {{{body}}}
     </section>
 
     <footer>
-        <hr style = "margin:0; padding:0;" />
         <div class="footer-content">
             <div>
-                <img src = "../public/image/logo.png" alt = "logo" id = "logoFooter"/>
-            </div>
-            <div>
                 <h5>
-                With ©My Pokémon Story, you can keep and browse your favorite Pokémon memories.<br/>
-                Contact Us<br/>
-                Cookie Policy<br/>
-                Privacy Policy<br/>
-                Site Map<br/>
-                <br/>
-                Social Sharing<br/>
-                <br/>
                 Keep our dreams<br/>
                 ©My Pokémon Story, Site by Eathen<br/>
+                <a href = "">Contact Us</a> / <a href = "">Cookie Policy</a> / <a href = "">Privacy Policy</a> / <a href = "">Site Map</a><br/>
+                Social Sharing<br/>
                 <a href = "https://www.yichenguo.com/">Contact</a> for Legal Reasons
                 </h5>
             </div>

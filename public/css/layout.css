@@ -1,6 +1,6 @@
 :root{
     --main-border-radius: 10px;
-    --main-background-color:  #6bacc8;
+    --main-text-color: rgba(56,106,187,1);
 }
 
 @font-face {
@@ -8,91 +8,145 @@
     src:url("../font/Gill\ Sans.otf");
 }
 
+@font-face {
+    font-family: 'Gill Sans Heavy';
+    src:url('../font/Gill\ Sans\ Heavy.otf')
+}
+
 body{
+    min-height: 100%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin:0;
     padding:0;
     align-items:center;
     text-align: center;
+    display:flex;
+    flex-direction: column;
+    background-image: url(../image/wallpaper.png);
 }
 
 nav{
+    font-family: 'Gill Sans Heavy';
     height: 75px;
-    background-color: var(--main-background-color);
-    display:flex;
+    width: 100%;
+    padding: 10px;
+    /*background-color: var(--main-background-color);*/
+    position: fixed;
+    top: 0;
+    left: 0; 
+    right: 0;
+
+    display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items:center;
+}
+
+nav .icon{
+    height: 25px;
+    width: 25px;
+    object-fit: cover;
+    /* This attribute prevents user interaction with the button*/
+    pointer-events: none;
 }
 
 #logoPlace{
     width: 30%;
+    padding: 5px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center; 
 }
 
 #logoNav{
-    width: auto;
-    height:75px;
+    max-width: 100%;
 }
 
 #searchBar{
     width: 40%;
-    display: inline-block;
+    display: flex;
     justify-content: center;
     align-items: center; 
 }
 
-#searchBar div{
-    padding: 0;
-    margin: 0;
+#searchBar form{
+    width: 100%;
+    height: 100%;
+    padding:0;
+    /* Use margin:auto to vertically center a div*/
+    margin: auto;
+    display: flex;
+    justify-content:center;
+    flex-direction: row;
+    align-items: center; 
+    gap:0;
 }
 
 #searchBar input{
-    float: left;
-    width: auto;
-    padding: 6px;
+    border: none;
+    width: 80%;
+    padding-left:5px;
+    padding-right: 5px;
+    padding-top: 10px;
+    padding-bottom:10px;
     font-size: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border-radius: var(--main-border-radius);
-}
-
-#searchBar button{
-    margin-top: auto;
-    margin-bottom: auto;
-    padding: 6px;
-    font-size: 20px; 
-    float:right;
-}
-
-#userPanel{
-    float: right;
-    display: inline-flex;
+    -webkit-text-fill-color:var(--main-text-color);
+    font-family: 'Gill Sans Heavy';
+    border-top-left-radius: var(--main-border-radius);
+    border-bottom-left-radius: var(--main-border-radius);
     align-items: center; 
 }
 
-#userPanel h3{
-    font-size: 20px;
-    margin: 10px;
-    justify-content: center;
+#searchBar input::placeholder {
+    color:var(--main-text-color);
 }
 
-#logo{
-    width: 20%;
-    margin-left: auto;
-    margin-right: auto;
+#searchBar button{
+    border: none;
+    background-color:white;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left:5px;
+    padding-right: 5px;
+    padding-top: 10px;
+    padding-bottom:10px;
+    border-top-right-radius: var(--main-border-radius);
+    border-bottom-right-radius: var(--main-border-radius);
+    border-top-left-radius:0;
+    border-bottom-left-radius:0;
+}
+
+#userPanel{
+    width: 30%;
+    padding:10px;
+    display:flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center; 
+    text-align: center;
+    gap: 10px;
+}
+
+#userPanel a{
+    padding: 0;
+}
+
+#userPanel h3{
+    font-size:20px;
+    padding:0;
 }
 
 button{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans Heavy';
     border-radius: var(--main-border-radius);
 }
 
-section{
-    min-height: 100%;
-}
-
 footer{
-    float:bottom;
-    height: 200px;
-    background-color: var(--main-background-color);
+    margin-top: auto;
+    width: 100%;
+    height: 75px;
+    background-color: var(--main-text-color);
 }
 
 footer-content{
@@ -105,7 +159,17 @@ footer-content div{
     margin: auto;
 }
 
-#logoFooter{
-    width: auto;
-    height:75px;
+a{
+    text-decoration: none;
+    color: var(--main-text-color);
 }
+
+a:hover{
+    text-decoration: underline black;
+}
+
+input:focus{
+    outline: none;
+    box-shadow: 0 0 5px var(--main-text-color);
+}
+
