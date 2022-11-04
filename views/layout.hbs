@@ -10,6 +10,11 @@
     </head>
 
 <body>
+    {{#if fixed}}
+    <header style = "display:fixed;">
+    {{else}}
+    <header style = "display:absolute;">
+    {{/if}}
         <nav>
             <div id = "logoPlace">
                 <a href = "/"><img src = "../public/image/logo.png" alt = "logo" id = "logoNav"/></a>
@@ -30,9 +35,11 @@
                 {{/if}}
             </div>
         </nav>
-
-    <div style = "height: 85px;"></div>
-    
+        <hr style = "padding:0; margin:0;" id = "topLine"/>
+    </header>
+    {{#if fixed}}
+    <div style = "height: 100px;"></div>
+    {{/if}}
     <section>
         {{{body}}}
     </section>
@@ -43,10 +50,10 @@
                 <h5>
                 Keep our dreams<br/>
                 ©My Pokémon Story, Site by Eathen<br/>
-                <a href = "">Contact Us</a> / <a href = "">Cookie Policy</a> / <a href = "">Privacy Policy</a> / <a href = "">Site Map</a><br/>
+               <!-- <a href = "">Contact Us</a> / <a href = "">Cookie Policy</a> / <a href = "">Privacy Policy</a> / <a href = "">Site Map</a><br/>
                 Social Sharing<br/>
                 <a href = "https://www.yichenguo.com/">Contact</a> for Legal Reasons
-                </h5>
+                </h5> -->
             </div>
         </div>
     </footer>

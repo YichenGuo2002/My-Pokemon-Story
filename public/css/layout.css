@@ -22,19 +22,27 @@ body{
     text-align: center;
     display:flex;
     flex-direction: column;
-    background-image: url(../image/wallpaper.png);
+    /*background-image: url(../image/wallpaper.png);*/
 }
 
-nav{
-    font-family: 'Gill Sans Heavy';
-    height: 75px;
+header{
     width: 100%;
-    padding: 10px;
-    /*background-color: var(--main-background-color);*/
-    position: fixed;
     top: 0;
     left: 0; 
     right: 0;
+}
+
+#topLine{
+    border-top: 1px solid var(--main-text-color);
+}
+
+nav{
+    height: 75px;
+    background-color:aliceblue;
+    font-family: 'Gill Sans Heavy';
+    width: 100%;
+    padding: 10px;
+    /*background-color: var(--main-background-color);*/
 
     display: flex;
     flex-direction: row;
@@ -50,17 +58,19 @@ nav .icon{
     pointer-events: none;
 }
 
+
+
 #logoPlace{
     width: 30%;
     padding: 5px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     flex-direction: row;
     align-items: center; 
 }
 
 #logoNav{
-    max-width: 100%;
+    height:40px;
 }
 
 #searchBar{
@@ -84,12 +94,10 @@ nav .icon{
 }
 
 #searchBar input{
-    border: none;
+    border: 1px solid var(--main-text-color);
     width: 80%;
-    padding-left:5px;
-    padding-right: 5px;
-    padding-top: 10px;
-    padding-bottom:10px;
+    height: 40px;
+    padding:5px;
     font-size: 20px;
     -webkit-text-fill-color:var(--main-text-color);
     font-family: 'Gill Sans Heavy';
@@ -103,14 +111,12 @@ nav .icon{
 }
 
 #searchBar button{
-    border: none;
+    border: 1px solid var(--main-text-color);
     background-color:white;
     margin-top: auto;
     margin-bottom: auto;
-    padding-left:5px;
-    padding-right: 5px;
-    padding-top: 10px;
-    padding-bottom:10px;
+    padding:5px;
+    height: 40px;
     border-top-right-radius: var(--main-border-radius);
     border-bottom-right-radius: var(--main-border-radius);
     border-top-left-radius:0;
@@ -121,7 +127,7 @@ nav .icon{
     width: 30%;
     padding:10px;
     display:flex;
-    justify-content: flex-end;
+    justify-content: center;
     flex-direction: row;
     align-items: center; 
     text-align: center;
