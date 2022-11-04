@@ -11,9 +11,9 @@
 
 <body>
     {{#if fixed}}
-    <header style = "display:fixed;">
+    <header style = "position:fixed;">
     {{else}}
-    <header style = "display:absolute;">
+    <header>
     {{/if}}
         <nav>
             <div id = "logoPlace">
@@ -40,6 +40,7 @@
     {{#if fixed}}
     <div style = "height: 100px;"></div>
     {{/if}}
+    
     <section>
         {{{body}}}
     </section>
