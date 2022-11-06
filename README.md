@@ -136,6 +136,7 @@ An Example Pokémon:
 * Researched about handlebars.js section-helper to help connect each page with their individual css and js file.
 * Researched about importing js modules. (failed, was not able to connect modules. So I copied and pasted the entire function into my js file. Need further inspection.)
 * Researched about how to vertically center an element. (margin: auto)
+* Researched about adding horizontally scrolling image to homepage.
 
 ## [Link to Initial Main Project File](app.mjs) 
 

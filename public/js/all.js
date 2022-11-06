@@ -119,7 +119,8 @@ const displayPicture = async(pageNumber = 1) =>{
         pDiv = document.createElement("div");
         let pokemon = await fetchPoke(i);
         if(pokemon){
-            pImg.src = `https://static.pokemonpets.com/images/monsters-images-300-300/${pokemon['id']}-${pokemon['name']}.webp`;
+            /*pImg.src = `https://static.pokemonpets.com/images/monsters-images-300-300/${pokemon['id']}-${pokemon['name']}.webp`;*/
+            pImg.src=`https://img.yakkun.com/poke/icon960/n${pokemon['id']}.png`;
             pImg.style = "width:300px; height: 300px;object-fit: contain;"
             pText.innerText = `${pokemon['id']} - ${nameAddUpperCase(pokemon.name)}`;
             pLink.href = `detail?pId=${pokemon['id']}`;

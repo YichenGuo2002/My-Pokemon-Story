@@ -27,6 +27,7 @@ body{
 }
 
 header{
+    z-index: 1000;
     width: 100%;
     top: 0;
     left: 0; 
@@ -150,15 +151,15 @@ button{
 }
 
 section{
+    min-height: calc(100vh - 250px);
     margin:0;
     padding:0;
     width: 100%;
 }
 
 footer{
-    bottom:0;
     width: 100%;
-    height: 75px;
+    height: 150px;
     background-color: var(--main-text-color);
 }
 

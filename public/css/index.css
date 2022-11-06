@@ -23,12 +23,183 @@ figure{
     }
 }
 
+#title{
+    height: 400px;
+    margin:0;
+    padding:0;
+    display:flex;
+    justify-content:center;
+}
+
+#title h3{
+    width: 50%;
+    position:relative;
+    top: 150px;
+    font-family: 'Gill Sans Heavy';
+    color:var(--main-text-color);
+    font-size: 100px;
+    text-align:left;
+    padding:0;
+    margin:0;
+}
+
+#subtitle{
+    width: 50%;
+    position:absolute;
+    top: 480px;
+    left:25%;
+
+}
+
+#subtitle p,button{
+    margin-left:0;
+    margin-right:0;
+    margin-top:10px;
+    margin-bottom:10px;
+    font-size: 20px;
+    width: max-content;
+    color:var(--main-text-color);
+}
+
+#subtitle p{
+    padding:0;
+}
+
+#subtitle button{
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    border:1px solid var(--main-text-color);
+}
+
+#blocks{
+    width: 80%;
+    position:absolute;
+    top: calc(100vh + 75px);
+    left:10%;
+    color: var(--main-text-color);
+    background-color: aliceblue;
+    border-radius: var(--main-border-radius);
+}
+
+#blocks h3{
+    font-family: 'Gill Sans Heavy';
+    font-size: 70px;
+    margin:0;
+    padding-top:80px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-bottom:20px;
+    text-align: left;
+    height: 250px;
+    background-image:url(../image/pokeball.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+#subblocks{
+    display:flex;
+    flex-direction:row;
+    gap:0;
+}
+
+#subblocks div{
+    width:calc((100% - 120px)/3);
+    padding:20px;
+    margin: 20px;
+    background-color: white;
+    border-radius: var(--main-border-radius);
+    text-align: left;
+}
+
+#subblocks div p{
+    color:black;
+    font-size: 20px;
+}
+
+#subblocks div p b{
+    font-family: 'Gill Sans Heavy';
+}
+
+#login{
+    background-image:
+    linear-gradient(to top, rgba(245, 246, 252, 0),rgba(84, 185, 241, 0.7)),
+        url(../image/login.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:bottom;
+}
+
+#subLogin{
+    position:absolute;
+    width: 50%;
+    left: 25%;
+    top: 260vh;
+    text-align: left;
+}
+
+#subLogin h3, #subLogin p, #subFriend h3, #subFriend p{
+    padding:0;
+    margin:0;
+    color:white;
+    text-shadow : 5px 5px 5px black;
+}
+
+#subLogin h3{
+    font-family: 'Gill Sans Heavy';
+    font-size: 70px;
+}
+
+#subLogin button{
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    border:1px solid var(--main-text-color);
+}
+
+#login p{
+    font-size: 30px;
+}
+
+#subFriend{
+    position:absolute;
+    width: 50%;
+    left: 25%;
+    top: 420vh;
+    text-align: left;
+}
+
+
+#subFriend h3{
+    font-family: 'Gill Sans Heavy';
+    font-size: 70px;
+}
+
+#subFriend button{
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    border:1px solid var(--main-text-color);
+}
+
+#friend{
+    background-image:
+        url(../image/friend.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:top;
+    font-size: 30px;
+}
+
 html,body
 {
     width: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden; 
 }
 
 /*#wallpaper{

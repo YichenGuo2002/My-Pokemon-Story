@@ -55,15 +55,11 @@ let helpers = {
         if(!this._sections) this._sections = {};
         this._sections[name] = options.fn(this);
         return null;
-    },
-    fixed:true
+    }
 }
 
 app.get('/', (req, res) => {
-    res.render('index', {
-        fixed:false,
-        section:helpers.section
-    });
+    res.render('index', helpers);
 });
 
 app.get('/all', (req, res) => {
