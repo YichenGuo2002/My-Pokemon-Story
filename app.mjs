@@ -1,10 +1,21 @@
 import './db.mjs';
+import {} from 'dotenv/config';
 import express from 'express';
 import session from 'express-session';
 import mongoose from 'mongoose';
 import path from 'path';
 import * as auth from './auth.mjs';
 import { fileURLToPath } from 'url';
+
+const url = process.env.MONGODB_URI;
+
+mongoose.connect(url)
+    .then( () => {
+        console.log('Connected to the database.')
+    })
+    .catch( (err) => {
+        console.error(`Error connecting to the database. n${err}`);
+    });
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);

@@ -4,8 +4,6 @@ import {} from 'dotenv/config';
 import mongoose from 'mongoose';
 import mongooseSlugPlugin from 'mongoose-slug-plugin';
 
-const url = process.env.MONGODB_URI;
-
 // TODO: add schemas
 const PokemonSchema = new mongoose.Schema({
     user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
@@ -44,11 +42,3 @@ PokemonSchema.plugin(mongooseSlugPlugin, {tmpl: '<%=name%>'});
 mongoose.model('User', UserSchema);
 mongoose.model('List', ListSchema);
 mongoose.model('Pokemon', PokemonSchema);
-
-mongoose.connect(url)
-    .then( () => {
-        console.log('Connected to the database.')
-    })
-    .catch( (err) => {
-        console.error(`Error connecting to the database. n${err}`);
-    });
