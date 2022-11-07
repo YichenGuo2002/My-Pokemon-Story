@@ -15,6 +15,6 @@
     "bcryptjs": "^2.4.3"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node app.mjs"
  }
 }
