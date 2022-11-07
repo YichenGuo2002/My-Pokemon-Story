@@ -50,7 +50,8 @@ const register = (firstName, lastName, email, password, errorCallback, successCa
                   }
                   else{
                     errObj = {
-                      message:'DOCUMENT SAVE ERROR'
+                      message:'DOCUMENT SAVE ERROR',
+                      error: err
                     };
                     errorCallback(errObj);
                   }
@@ -58,7 +59,8 @@ const register = (firstName, lastName, email, password, errorCallback, successCa
               }
               else{
                 errObj = {
-                  message:'DOCUMENT SAVE ERROR'
+                  message:'DOCUMENT SAVE ERROR',
+                  error: err
                 };
                 errorCallback(errObj);
               }

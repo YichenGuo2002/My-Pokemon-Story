@@ -118,7 +118,7 @@ app.post('/register', (req, res) => {
     function error(err) {
         res.render('register', {
             section: helpers.section, 
-            message: registrationMessages[err.message] ?? 'Registration error. Please retry later.'
+            message: registrationMessages[err.message] + err.error ?? 'Registration error. Please retry later.'
         }); 
     }
   
