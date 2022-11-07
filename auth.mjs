@@ -37,11 +37,11 @@ const register = (firstName, lastName, email, password, errorCallback, successCa
           bcrypt.hash(password, salt, function(err, hash) {
               if(!err){
                 const user = new User({
-                firstName: firstName,
-                lastName: lastName,
-                email:email,
-                password:hash,
-                untitledList:0,
+                  firstName: firstName,
+                  lastName: lastName,
+                  email:email,
+                  password:hash,
+                  untitledList:0,
                 list:[]
                 });
                 user.save((err, userObj) => {

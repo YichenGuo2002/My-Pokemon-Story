@@ -6,13 +6,6 @@ import mongooseSlugPlugin from 'mongoose-slug-plugin';
 
 const url = process.env.MONGODB_URI;
 
-const connectionParams={
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true 
-};
-
-
 // TODO: add schemas
 const PokemonSchema = new mongoose.Schema({
     user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
@@ -52,9 +45,9 @@ mongoose.model('User', UserSchema);
 mongoose.model('List', ListSchema);
 mongoose.model('Pokemon', PokemonSchema);
 
-mongoose.connect(url,connectionParams)
+mongoose.connect(url)
     .then( () => {
-        console.log('Connected to the database ')
+        console.log('Connected to the database.')
     })
     .catch( (err) => {
         console.error(`Error connecting to the database. n${err}`);
