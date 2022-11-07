@@ -137,21 +137,24 @@ const displayPagination = async (pagination)=>{
     displayPicture(Number(pagination['currentPage']));
     pagination['pages'].forEach((pageNumber) =>{
         pageLink = document.createElement("a");
-        pageList = document.createElement("li");
-        pageLink.innerText = `${pageNumber}`;
+        pageList = document.createElement("button");
+        pageList.innerText = `${pageNumber}`;
         pageLink.href = `all?page=${pageNumber}`;
-        pageList.appendChild(pageLink);
-        document.getElementById('paginationList').append(pageList);
+        if(pageNumber === pagination['currentPage']){
+            pageList.style.color = "white";
+            pageList.style.backgroundColor = "rgba(56,106,187,1)";
+        }
+        pageLink.appendChild(pageList);
+        document.getElementById('paginationList').append(pageLink);
     });
-    document.getElementById('currentPage').innerText = pagination['currentPage'];
     if(pagination['currentPage'] === 1){
-        document.getElementById('previousPage').style = "display:none";
+        document.getElementById('previousButton').style.color = "grey";
     }
     else{
         document.getElementById('previousPage').href = `all?page=${pagination['currentPage']-1}`;
     }
     if(pagination['currentPage'] === pagination['totalPages']){
-        document.getElementById('nextPage').style = "display:none";
+        document.getElementById('nextButton').style.color = "grey";
     }
     else{
         document.getElementById('nextPage').href = `all?page=${pagination['currentPage']+1}`;

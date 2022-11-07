@@ -24,7 +24,7 @@ figure{
 }
 
 #title{
-    height: 400px;
+    height: 425px;
     margin:0;
     padding:0;
     display:flex;
@@ -207,6 +207,7 @@ figure{
     left: 25%;
     color:var(--main-text-color);
     padding: 20px;
+    margin: 0;
 }
 
 #subEmail h3{

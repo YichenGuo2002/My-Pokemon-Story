@@ -3,3 +3,38 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+#pagination{
+    display:flex;
+    flex-direction:row;
+    gap:0;
+    justify-content: center;
+}
+
+#pagination button{
+    font-size: 20px;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:10px;
+    padding-right:10px;
+    color:var(--main-text-color);
+    border:1px solid var(--main-text-color);
+}
+
+#paginationList button{
+    border-radius:0;
+}
+
+#previousButton{
+    border-top-left-radius: var(--main-border-radius);
+    border-bottom-left-radius: var(--main-border-radius);
+    border-top-right-radius:0;
+    border-bottom-right-radius:0;
+}
+
+#nextButton{
+    border-top-right-radius: var(--main-border-radius);
+    border-bottom-right-radius: var(--main-border-radius);
+    border-top-left-radius:0;
+    border-bottom-left-radius:0;
+}
