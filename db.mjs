@@ -10,15 +10,8 @@ const connectionParams={
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true 
-}
+};
 
-mongoose.connect(url,connectionParams)
-    .then( () => {
-        console.log('Connected to the database ')
-    })
-    .catch( (err) => {
-        console.error(`Error connecting to the database. n${err}`);
-    })
 
 // TODO: add schemas
 const PokemonSchema = new mongoose.Schema({
@@ -59,4 +52,10 @@ mongoose.model('User', UserSchema);
 mongoose.model('List', ListSchema);
 mongoose.model('Pokemon', PokemonSchema);
 
-mongoose.connect('mongodb://localhost/final_project');
+mongoose.connect(url,connectionParams)
+    .then( () => {
+        console.log('Connected to the database ')
+    })
+    .catch( (err) => {
+        console.error(`Error connecting to the database. n${err}`);
+    });
