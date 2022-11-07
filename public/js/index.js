@@ -22,11 +22,22 @@ const see = () => {
     else{
         document.getElementById("loginPicture").style.left = `350px`;
     }
-    console.log("result is", windowTop, elementTop);
+}
+
+const see2 = () =>{
+    let windowTop = window.pageYOffset || document.documentElement.scrollTop;
+    let elementTop = document.getElementById('friend').offsetTop;
+    let rightPosition = windowTop - elementTop + 150;
+    if(rightPosition < 250){
+        document.getElementById("friendPicture").style.right = `${rightPosition}`;
+    }
+    else{
+        document.getElementById("friendPicture").style.right = `250px`;
+    }
 }
 
 window.addEventListener("scroll", see);
-
+window.addEventListener("scroll", see2);
 /*
 let imageLimit = 1000;
 let image

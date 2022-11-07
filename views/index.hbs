@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="../public/css/index.css">
 {{/section}}
 
-<div id = "title">
+<div id = "title" style = "background: linear-gradient(to top, white,aliceblue);">
     <h3>My Story<br/>
         Starts Here...</h3>
     <!---->
@@ -37,20 +37,41 @@
 <div style = "height:200px; background-color:rgba(84, 185, 241, 0.9);"></div>
 <div id = "login" style = "height: calc(100vh);">
     <div id = "subLogin">
-        <h3>New to this?</h3>
+        <h3>New to This?</h3>
         <p>First-time travelers, you are more than welcome! Start building up your list today to gain the most experience from My Pokémon Story.</p>
         <button id = "registerButton">Sign Up</button>
     </div>
-    <img id = "loginPicture" src = "../public/image/Artboard 1.png" style = "max-height:50%; position:relative; top: 250px;">
+    <img id = "loginPicture" src = "../public/image/Artboard 1.png" style = "max-height:50%; position:relative; top: 250px; left: 350px;">
 </div>
 <div id = "friend" style = "height: calc(150vh);">
     <div id = "subFriend">
-        <h3>Feeling alone?</h3>
+        <h3>Feeling Alone?</h3>
         <p>Come connect with Pokémon lovers from all around the world! We share and comment on each other's Pokémon collection. This is so much fun!</p>
         <button id = "friendButton">Sign Up</button>
+        <img id = "friendPicture" src = "../public/image/Artboard 2.png" style = "max-height:75vh; position:relative; bottom:710px; right: 250px;">
     </div>
 </div>
-<div style = "height: calc(100vh - 150px);">
+<div style = "width:100%; height:max-content;">
+    <iframe 
+    style = "width:100vw; height: calc(100vw * 0.5625);"
+    src="https://www.youtube-nocookie.com/embed/ycNtbNFXAso" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+    </iframe>
+</div>
+<hr style = "padding:0; margin:0; color:var(--main-text-color);"/>
+<div id = "email" style = "height: calc(100vh - 225px);">
+    <div id = "subEmail" align = "center">
+        <h3>Keep Up With Our Latest News!</h3>
+        <input type = "text" name = "subscribeEmail" id = "subscribeInput" placeholder = "Email Account*">
+        <p>By providing this information, you are opting to receive emails from  My Pokémon Story with news, 
+        special offers, promotions and messages tailored to your interests, and you agree to the My Pokémon Story
+         privacy policy and terms of use.<br>
+        Fields marked with an asterisk (*) are required.</p>
+        <button>Submit</button>
+    </div>
 
 </div>
 

@@ -63,7 +63,7 @@ nav .icon{
 
 
 #logoPlace{
-    width: 30%;
+    width: 25%;
     padding: 5px;
     display: flex;
     justify-content: center;
@@ -76,7 +76,7 @@ nav .icon{
 }
 
 #searchBar{
-    width: 40%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center; 
@@ -97,7 +97,7 @@ nav .icon{
 
 #searchBar input{
     border: 1px solid var(--main-text-color);
-    width: 80%;
+    width: 100%;
     height: 40px;
     padding:5px;
     font-size: 20px;
@@ -126,7 +126,7 @@ nav .icon{
 }
 
 #userPanel{
-    width: 30%;
+    width: 25%;
     padding:10px;
     display:flex;
     justify-content: center;
