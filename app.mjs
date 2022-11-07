@@ -9,13 +9,16 @@ import { fileURLToPath } from 'url';
 
 const url = process.env.MONGODB_URI;
 
-mongoose.connect(url)
+const start = async() =>{
+    await mongoose.connect(url)
     .then( () => {
         console.log('Connected to the database.')
     })
     .catch( (err) => {
         console.error(`Error connecting to the database. n${err}`);
     });
+}
+await start();
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
