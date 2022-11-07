@@ -1,6 +1,6 @@
 //run npm install --save-dev mongoose/mongoose-slug-plugin first
 //run mongosh
-require('dotenv').config();
+import {} from 'dotenv/config';
 import mongoose from 'mongoose';
 import mongooseSlugPlugin from 'mongoose-slug-plugin';
 
