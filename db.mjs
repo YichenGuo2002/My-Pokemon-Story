@@ -1,8 +1,24 @@
 //run npm install --save-dev mongoose/mongoose-slug-plugin first
 //run mongosh
-
+require('dotenv').config();
 import mongoose from 'mongoose';
 import mongooseSlugPlugin from 'mongoose-slug-plugin';
+
+const url = process.env.MONGODB_URI;
+
+const connectionParams={
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true 
+}
+
+mongoose.connect(url,connectionParams)
+    .then( () => {
+        console.log('Connected to the database ')
+    })
+    .catch( (err) => {
+        console.error(`Error connecting to the database. n${err}`);
+    })
 
 // TODO: add schemas
 const PokemonSchema = new mongoose.Schema({
