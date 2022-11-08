@@ -8,17 +8,15 @@ import * as auth from './auth.mjs';
 import { fileURLToPath } from 'url';
 
 const url = process.env.MONGODB_URI;
+let q;
 
-const start = async() =>{
-    await mongoose.connect(url)
+mongoose.connect(url)
     .then( () => {
-        console.log('Connected to the database.')
+        q = 'Connected to the database.';
     })
     .catch( (err) => {
-        console.error(`Error connecting to the database. n${err}`);
+        q = `Error connecting to the database. n${err}`;
     });
-}
-await start();
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -142,7 +140,10 @@ app.post('/register', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-    res.render('login', helpers);
+    res.render('login', {
+        section: helpers.section, 
+        message: q
+    });
 });
 
 app.post('/login', (req, res) => {
