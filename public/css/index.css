@@ -24,7 +24,7 @@ figure{
 }
 
 #title{
-    height: 425px;
+    min-height: 425px;
     margin:0;
     padding:0;
     display:flex;

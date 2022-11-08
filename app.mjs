@@ -7,15 +7,14 @@ import path from 'path';
 import * as auth from './auth.mjs';
 import { fileURLToPath } from 'url';
 
+//On heroku, because we ignored .env file from committing to server, we set up environment variables on heroku dashboard config variables.
 const url = process.env.MONGODB_URI;
-let q;
-
 mongoose.connect(url)
     .then( () => {
-        q = 'Connected to the database.';
+        console.log('Connected to the database.');
     })
     .catch( (err) => {
-        q = `Error connecting to the database. n${err}`;
+        console.log(`Error connecting to the database. ${err}`);
     });
 
 const app = express();
@@ -130,7 +129,7 @@ app.post('/register', (req, res) => {
     function error(err) {
         res.render('register', {
             section: helpers.section, 
-            message: registrationMessages[err.message] + err.error ?? 'Registration error. Please retry later.'
+            message: registrationMessages[err.message] ?? 'Registration error. Please retry later.'
         }); 
     }
   
@@ -140,10 +139,7 @@ app.post('/register', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-    res.render('login', {
-        section: helpers.section, 
-        message: q
-    });
+    res.render('login', helpers);
 });
 
 app.post('/login', (req, res) => {

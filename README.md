@@ -138,6 +138,7 @@ An Example Pokémon:
 * Researched about how to vertically center an element. (margin: auto)
 * Researched about adding horizontally scrolling image to homepage.
 * Researched and troubleshot deploying on heroku and connecting to MongoDB Atlas. Turned out that there should not be any brackets around the user password in MongoDB Connection String (.env), and .env files are not commited, so we set up config values in heroku dashboard.
+* Researched about javascript animation.
 
 ## [Link to Initial Main Project File](app.mjs) 
 
