@@ -11,12 +11,7 @@ const url = 'mongodb://eatheng:0413605140270Gyc**@ac-am0slcb-shard-00-00.llomxss
 //const url = process.env.MONGODB_URI;
 let q;
 
-mongoose.connect(url, {
-    //must add in order to not get any error masseges:
-    useUnifiedTopology:true,
-    useNewUrlParser: true,
-    useCreateIndex: true
-})
+mongoose.connect(url)
     .then( () => {
         q = 'Connected to the database.';
     })
