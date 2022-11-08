@@ -10,7 +10,12 @@ import { fileURLToPath } from 'url';
 const url = process.env.MONGODB_URI;
 let q;
 
-mongoose.connect(url)
+mongoose.connect(url, {
+    //must add in order to not get any error masseges:
+    useUnifiedTopology:true,
+    useNewUrlParser: true,
+    useCreateIndex: true
+})
     .then( () => {
         q = 'Connected to the database.';
     })
@@ -142,7 +147,7 @@ app.post('/register', (req, res) => {
 app.get('/login', (req, res) => {
     res.render('login', {
         section: helpers.section, 
-        message: q
+        message: url
     });
 });
 
