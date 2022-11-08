@@ -137,7 +137,7 @@ An Example Pokémon:
 * Researched about importing js modules. (failed, was not able to connect modules. So I copied and pasted the entire function into my js file. Need further inspection.)
 * Researched about how to vertically center an element. (margin: auto)
 * Researched about adding horizontally scrolling image to homepage.
-* Researched and troubleshot deploying on heroku and connecting to MongoDB Atlas. Turned out that there should not be any brackets around the user password in MongoDB Connection String (.env).
+* Researched and troubleshot deploying on heroku and connecting to MongoDB Atlas. Turned out that there should not be any brackets around the user password in MongoDB Connection String (.env), and .env files are not commited, so we set up config values in heroku dashboard.
 
 ## [Link to Initial Main Project File](app.mjs) 
 
