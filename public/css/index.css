@@ -192,6 +192,7 @@ figure{
 }
 
 #email{
+    min-height: calc(100vh - 225px);
     background: linear-gradient(to top, white,aliceblue);
     background-size: cover;
     background-repeat: no-repeat;
@@ -202,7 +203,6 @@ figure{
     width: 50%;
     border-left: 1px solid var(--main-text-color);
     border-right: 1px solid var(--main-text-color);
-    height: calc(100vh - 225px);;
     position:absolute;
     left: 25%;
     color:var(--main-text-color);

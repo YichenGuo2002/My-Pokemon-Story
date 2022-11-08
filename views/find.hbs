@@ -3,11 +3,11 @@
     <link rel="stylesheet" href="../public/css/password.css">
 {{/section}}
 
-<h2>Recover Password</h2>
-{{#if message}}
-<div class="error">{{ message }}</div>
-{{/if}}
 <form method="POST" action="/find">
+	<h2>Recover Password</h2>
+	{{#if message}}
+	<div class="error">{{ message }}</div>
+	{{/if}}
 	<div>
 		<input type="email" name="email" value="" placeholder="Email">
 	</div>

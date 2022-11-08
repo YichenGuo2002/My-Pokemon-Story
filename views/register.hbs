@@ -4,11 +4,11 @@
 {{/section}}
 
 
-<h2>Register</h2>
-{{#if message}}
-<div class="error">{{ message }}</div>
-{{/if}}
 <form method="POST" action="register">
+	<h2>Register</h2>
+	{{#if message}}
+	<div class="error">{{ message }}</div>
+	{{/if}}
 	<div>
 		<input type="text" name="firstName" placeholder="First Name">
 	</div>

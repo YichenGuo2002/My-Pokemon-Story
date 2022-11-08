@@ -3,12 +3,11 @@
     <link rel="stylesheet" href="../public/css/password.css">
 {{/section}}
 
-
-<h2>Account Login</h2>
-{{#if message}}
-<div class="error">{{ message }}</div>
-{{/if}}
 <form method="POST" action="/login">
+	<h2>Account Login</h2>
+	{{#if message}}
+	<div class="error">{{ message }}</div>
+	{{/if}}
 	<div>
 		<input type="email" name="email" value="" placeholder="Email">
 	</div>
@@ -19,8 +18,8 @@
 		<input type="submit" value="LOGIN">
 	</div>
 	<div>
-		<a href = "find"><p>Forget Your Password?</p></a>
-		<a href = "register"><p>Create New Account</p></a>
+		<p><a href = "find">Forget Your Password?</a><br />
+		<a href = "register">Create New Account</a></p>
 	</div>
 </form>
 
