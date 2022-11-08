@@ -7,8 +7,7 @@ import path from 'path';
 import * as auth from './auth.mjs';
 import { fileURLToPath } from 'url';
 
-const url = 'mongodb://eatheng:0413605140270Gyc**@ac-am0slcb-shard-00-00.llomxss.mongodb.net:27017,ac-am0slcb-shard-00-01.llomxss.mongodb.net:27017,ac-am0slcb-shard-00-02.llomxss.mongodb.net:27017/?ssl=true&replicaSet=atlas-upg7ti-shard-0&authSource=admin&retryWrites=true&w=majority';
-//const url = process.env.MONGODB_URI;
+const url = process.env.MONGODB_URI;
 let q;
 
 mongoose.connect(url)
