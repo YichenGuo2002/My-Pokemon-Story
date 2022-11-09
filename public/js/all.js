@@ -125,7 +125,7 @@ const displayPicture = async(pageNumber = 1) =>{
             pText.innerText = `${nameAddUpperCase(pokemon.name)}`;
             pText.style = "position: absolute; top:20px; left:35px; font-family: 'Gill Sans Heavy'; font-size:30px; color:black; padding:0; margin: 0;";
             pLink.href = `detail?pId=${pokemon['id']}`;
-            pDiv.style = `position:relative;width:420px; height: 330px; margin: 15px; border: 2px dotted black; background-image:url(${typeConvertToTcpPicture(pokemon)}); background-position:top;background-color:white;`;
+            pDiv.style = `position:relative;width:420px; height: 330px; margin: 15px; border: 2px dotted rgba(56,106,187,1); background-image:url(${typeConvertToTcpPicture(pokemon)}); background-position:top;background-color:white;`;
             pLink.appendChild(pText);
             pLink.appendChild(pImg);
             pDiv.appendChild(pLink);
