@@ -121,12 +121,13 @@ const displayPicture = async(pageNumber = 1) =>{
         if(pokemon){
             /*pImg.src = `https://static.pokemonpets.com/images/monsters-images-300-300/${pokemon['id']}-${pokemon['name']}.webp`;*/
             pImg.src=`https://img.yakkun.com/poke/icon960/n${pokemon['id']}.png`;
-            pImg.style = "width:300px; height: 300px;object-fit: contain;"
-            pText.innerText = `${pokemon['id']} - ${nameAddUpperCase(pokemon.name)}`;
+            pImg.style = "position:absolute; top: 30px; left:35px; width:350px; height: 300px;object-fit: contain; margin:0; padding:0;";
+            pText.innerText = `${nameAddUpperCase(pokemon.name)}`;
+            pText.style = "position: absolute; top:20px; left:35px; font-family: 'Gill Sans Heavy'; font-size:30px; color:black; padding:0; margin: 0;";
             pLink.href = `detail?pId=${pokemon['id']}`;
-            pDiv.style = `width:420px; height: 590px; margin: 15px; border: 2px dotted black; background-image:url("${typeConvertToTcpPicture(pokemon)}")`;
-            pLink.appendChild(pImg);
+            pDiv.style = `position:relative;width:420px; height: 330px; margin: 15px; border: 2px dotted black; background-image:url(${typeConvertToTcpPicture(pokemon)}); background-position:top;background-color:white;`;
             pLink.appendChild(pText);
+            pLink.appendChild(pImg);
             pDiv.appendChild(pLink);
             allPictures.appendChild(pDiv);
         }

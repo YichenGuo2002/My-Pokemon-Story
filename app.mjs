@@ -168,6 +168,10 @@ app.post('/login', (req, res) => {
     auth.login(req.body.email, req.body.password, error, success);
 });
 
+app.get('/fyp',(req, res) => {
+    res.render('fyp', helpers);
+});
+
 app.post('/list', (req, res) => {
     auth.endAuthenticatedSession (req, (err) =>{
         if(!err) {

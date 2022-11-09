@@ -22,7 +22,8 @@ const urlQueryStrings = new URLSearchParams(window.location.search); //All query
 const findP = async function(id = 1){
     let pokemon = await fetchPoke(id);
     if(pokemon){
-        document.getElementById('pimage').src = `https://static.pokemonpets.com/images/monsters-images-300-300/${pokemon['id']}-${pokemon['name']}.webp`;
+        document.getElementById('pimage').src = `https://img.yakkun.com/poke/icon960/n${pokemon['id']}.png`;
+        document.getElementById('pimage').style = "width:300px; height: 300px;object-fit: contain;";
         document.getElementById('pname').innerText = toAddUpperCase(pokemon['name']);
         document.title = toAddUpperCase(pokemon['name']) + " - My Pokémon Story";
         document.getElementById('pid').innerText = pokemon['id'];
