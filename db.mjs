@@ -14,6 +14,7 @@ const PokemonSchema = new mongoose.Schema({
 const ListSchema = new mongoose.Schema({
     user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     title:{type: String, required: true},
+    public:{type: Boolean, required: true},
     pokemons:{type:[PokemonSchema], unique:false}, 
     //Array of Pokemon objects
     description:{type: String, required:false},

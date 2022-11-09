@@ -193,6 +193,7 @@ app.post('/addList', (req, res) =>{
     let list = new List({
         user:req.session.user._id,
         title:title,
+        public:false,
         pokemons:[]
     });
     list.save((err, listObject) =>{
