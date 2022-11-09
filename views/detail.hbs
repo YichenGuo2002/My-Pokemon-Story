@@ -6,54 +6,61 @@
 <button>Back</button>
     <div id = "allresult">
         <div id = "result">
-            <img id = "pimage" src="">
-            <p>
-            Name: <span id = "pname"> </span> <br>
-            Id:   #<span id = "pid"> </span> <br>
-            Type:   <span id = "ptype"> </span> <br>
-            Ability: <span id = "pability"> </span> <br>
-            Gender Ratio: <span id = "pgender"> </span> <br>
-            Capture Rate: <span id = "pcapture"> </span> <br>
-            Egg Groups: <span id = "pegg"> </span> <br>
-            Initial Hatch time: <span id = "phatch"> </span> <br>
-            Height: <span id = "pheight"> </span> <br>
-            Weight: <span id = "pweight"> </span> <br>
-            Color: <span id = "pcolor"> </span> <br>
-            Shape: <span id = "pshape"> </span> <br>
-            Base Experience Gained When Capture: <span id = "pbase"> </span> <br>
-            Level Growth Rate: <span id = "pgrowth"> </span> <br>
-            </p>
-
-
-            <p>Base Stats:</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Type</th>
-                            <th>Stats</th>
-                            <th>Effort</th>
-                        </tr>
-                    </thead>
-                    <tbody id = "pstats">    
-                         <!--Example table 
-                        <tr>
-                            <td>1</td>
-                            <td>Clark</td>
-                            <td>Kent</td>
-                            <td>clarkkent@mail.com</td>
-                        </tr> -->         
-                    </tbody>
-                </table>
-
-
-            <p>
-            Evolution charts: <span id = "pevolution"></span>
-            </p>
-            <div id = "psprites">
-
+            <div id = "leftBar">
+                <div id = "imgDiv">
+                    <p id = "pn"></p>
+                    <img id = "pimage" src="">
+                </div>
+                <button>Favorite</button>
+                <button>Add to My List</button>
             </div>
-            <button>Favorite</button>
-            <button>Add to list</button>
+            <div id = "descriptionDiv">
+                <p>
+                Name: <span id = "pname"> </span> <br>
+                Id:   #<span id = "pid"> </span> <br>
+                Type:   <span id = "ptype"> </span> <br>
+                Ability: <span id = "pability"> </span> <br>
+                Gender Ratio: <span id = "pgender"> </span> <br>
+                Capture Rate: <span id = "pcapture"> </span> <br>
+                Egg Groups: <span id = "pegg"> </span> <br>
+                Initial Hatch time: <span id = "phatch"> </span> <br>
+                Height: <span id = "pheight"> </span> <br>
+                Weight: <span id = "pweight"> </span> <br>
+                Color: <span id = "pcolor"> </span> <br>
+                Shape: <span id = "pshape"> </span> <br>
+                Base Experience Gained When Capture: <span id = "pbase"> </span> <br>
+                Level Growth Rate: <span id = "pgrowth"> </span> <br>
+                </p>
+
+
+                <p>Base Stats:</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Stats</th>
+                                <th>Effort</th>
+                            </tr>
+                        </thead>
+                        <tbody id = "pstats">    
+                            <!--Example table 
+                            <tr>
+                                <td>1</td>
+                                <td>Clark</td>
+                                <td>Kent</td>
+                                <td>clarkkent@mail.com</td>
+                            </tr> -->         
+                        </tbody>
+                    </table>
+
+
+                <p>
+                Evolution charts: <span id = "pevolution"></span>
+                </p>
+                <div id = "psprites">
+            
+                </div>
+            </div>
         </div>
         <div id = "noResult"></div>
     </div>

@@ -13,8 +13,38 @@ const fetchPoke = async (id = 1) => {
     return await fetchUrl(`https://pokeapi.co/api/v2/pokemon/${id}/`);
 }
 
-const toAddUpperCase = (pName) =>{
+const nameAddUpperCase = (pName) =>{
     return pName.slice(0,1).toUpperCase() + pName.slice(1).toLowerCase();
+}
+
+const typeConvertToTcpPicture = (pokemon) => {
+    const allTypes = {
+        Grass: ['Grass', 'Bug'],
+        Fire:['Fire'],
+        Water:[	'Water','Ice'],
+        Lightning:['Electric'],
+        Fighting:['Fighting','Rock', 'Ground'],
+        Psychic:['Psychic','Ghost','Poison','Fairy'],
+        Colorless:['Normal', 'Flying'],
+        Darkness:['Dark', 'Poison'],
+        Metal:['Steel'],
+        Dragon:['Dragon']
+    };
+    let type = nameAddUpperCase(pokemon['types'][0]['type']['name']);
+    let tcpType;
+    Object.keys(allTypes).forEach((eachKey, eachIndex) =>{
+        allTypes[eachKey].forEach((eachType) => {
+            if(type == eachType){
+                tcpType = eachKey;
+            }
+        })
+    });
+    if(tcpType){
+        return `../public/image/types/${tcpType}.png`;
+    }
+    else{
+        return null;
+    }
 }
 
 const urlQueryStrings = new URLSearchParams(window.location.search); //All query strings passed in
@@ -23,12 +53,16 @@ const findP = async function(id = 1){
     let pokemon = await fetchPoke(id);
     if(pokemon){
         document.getElementById('pimage').src = `https://img.yakkun.com/poke/icon960/n${pokemon['id']}.png`;
-        document.getElementById('pimage').style = "width:300px; height: 300px;object-fit: contain;";
-        document.getElementById('pname').innerText = toAddUpperCase(pokemon['name']);
-        document.title = toAddUpperCase(pokemon['name']) + " - My Pokémon Story";
+        document.getElementById('pimage').style = "position:absolute; top: 30px; left:35px; width:350px; height: 300px;object-fit: contain; margin:0; padding:0;";
+        document.getElementById('pn').innerText = nameAddUpperCase(pokemon['name']);
+        document.getElementById('pn').style = "position: absolute; top:20px; left:35px; font-family: 'Gill Sans Heavy'; font-size:30px; color:black; padding:0; margin: 0;";
+        document.getElementById('imgDiv').style = `position:relative;width:420px; height: 330px; margin: 15px; border: 2px dotted rgba(56,106,187,1); background-image:url(${typeConvertToTcpPicture(pokemon)}); background-position:top;background-color:white;`;
+
+        document.getElementById('pname').innerText = nameAddUpperCase(pokemon['name']);
+        document.title = nameAddUpperCase(pokemon['name']) + " - My Pokémon Story";
         document.getElementById('pid').innerText = pokemon['id'];
         document.getElementById('ptype').innerText = pokemon['types'].reduce((typeString, eachType) => {
-            return typeString + toAddUpperCase(eachType['type']['name']) + ` `;
+            return typeString + nameAddUpperCase(eachType['type']['name']) + ` `;
         }, '');
 
         //Get ability and ability description section
@@ -37,7 +71,7 @@ const findP = async function(id = 1){
         const getAbility = async (pokemon) => {
             let abilityString = '';
             for (const eachAbility of pokemon['abilities']){
-                abilityString += '<br>' + toAddUpperCase(eachAbility['ability']['name']);
+                abilityString += '<br>' + nameAddUpperCase(eachAbility['ability']['name']);
                 if(eachAbility['is_hidden']){
                     abilityString += '(hidden ability)';
                 }
@@ -63,7 +97,7 @@ const findP = async function(id = 1){
             for(const eachStats of pokemon['stats']) {
                 statsString += '<tr>';
                 statsString += `<td> ${eachStats['stat']['name']} </td>`
-                statsString += `<td> ${toAddUpperCase(eachStats['base_stat'].toString())} </td>`
+                statsString += `<td> ${nameAddUpperCase(eachStats['base_stat'].toString())} </td>`
                 statsString += `<td> ${eachStats['effort']} </td>`
                 statsString += '</tr>';
                 statsTotal += eachStats['base_stat'];
@@ -84,10 +118,10 @@ const findP = async function(id = 1){
             let speciesData = await fetchUrl(`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
             let evolutionUrl = speciesData['evolution_chain']['url'];
             let evolutionData = await fetchUrl(evolutionUrl);
-            evolutionString += toAddUpperCase(evolutionData['chain']['species']['name'].toString());
+            evolutionString += nameAddUpperCase(evolutionData['chain']['species']['name'].toString());
             evolutionData = evolutionData['chain']['evolves_to'];
             while(evolutionData.length != 0){
-                evolutionString += " " + toAddUpperCase(evolutionData[0]['species']['name'].toString());
+                evolutionString += " " + nameAddUpperCase(evolutionData[0]['species']['name'].toString());
                 evolutionData = evolutionData[0]['evolves_to'];
             }
             return {evolutionString:evolutionString, speciesData:speciesData};
@@ -112,7 +146,7 @@ const findP = async function(id = 1){
         document.getElementById('pcapture').innerHTML = `${speciesData['capture_rate']}/255`;
         let eggString ="";
         for(const eachEggGroup of speciesData['egg_groups']){
-            eggString += toAddUpperCase(eachEggGroup['name'].toString()) + " ";
+            eggString += nameAddUpperCase(eachEggGroup['name'].toString()) + " ";
         }
         document.getElementById('pegg').innerHTML = `${eggString}`;
         document.getElementById('phatch').innerHTML = `${255 * (speciesData['hatch_counter'] + 1)} steps`;

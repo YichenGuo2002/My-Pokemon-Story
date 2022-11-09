@@ -3,3 +3,38 @@ table, th, td{
     text-align: center;
     margin: auto;
 }
+
+#result{
+    display:flex;
+    flex-direction: row;
+    gap: 0;
+    background-color: aliceblue;
+}
+
+#leftBar{
+    border-right: 1px solid var(--main-text-color);
+}
+
+#leftBar button{
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    border:1px solid var(--main-text-color);
+    font-size: 20px;
+    width: max-content;
+    color:var(--main-text-color);
+}
+
+#descriptionDiv{
+    text-align:left;
+    padding:15px;
+    margin:0;
+    color:var(--main-text-color);
+}
+
+#descriptionDiv p{
+    padding:0;
+    margin:0;
+    font-size: 20px;
+}
