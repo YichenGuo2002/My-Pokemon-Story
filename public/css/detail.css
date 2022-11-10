@@ -38,3 +38,8 @@ table, th, td{
     margin:0;
     font-size: 20px;
 }
+
+#descriptionDiv p span{
+    font-size:25px;
+    color:black;
+}

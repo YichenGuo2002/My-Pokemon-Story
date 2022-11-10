@@ -60,7 +60,7 @@ const findP = async function(id = 1){
 
         document.getElementById('pname').innerText = nameAddUpperCase(pokemon['name']);
         document.title = nameAddUpperCase(pokemon['name']) + " - My Pokémon Story";
-        document.getElementById('pid').innerText = pokemon['id'];
+        document.getElementById('pid').innerText = `#${pokemon['id']}`;
         document.getElementById('ptype').innerText = pokemon['types'].reduce((typeString, eachType) => {
             return typeString + nameAddUpperCase(eachType['type']['name']) + ` `;
         }, '');
@@ -71,11 +71,11 @@ const findP = async function(id = 1){
         const getAbility = async (pokemon) => {
             let abilityString = '';
             for (const eachAbility of pokemon['abilities']){
-                abilityString += '<br>' + nameAddUpperCase(eachAbility['ability']['name']);
+                abilityString += '<br> - ' + nameAddUpperCase(eachAbility['ability']['name']);
                 if(eachAbility['is_hidden']){
-                    abilityString += '(hidden ability)';
+                    abilityString += ' (hidden ability)';
                 }
-                abilityString += '<br>';
+                abilityString += ':<br>';
                 let abilityData = await fetchUrl(eachAbility['ability']['url']);
                 let filteredData = abilityData['effect_entries'].filter((eachEntry) =>{
                         return eachEntry['language']['name'] == 'en';
@@ -150,9 +150,9 @@ const findP = async function(id = 1){
         }
         document.getElementById('pegg').innerHTML = `${eggString}`;
         document.getElementById('phatch').innerHTML = `${255 * (speciesData['hatch_counter'] + 1)} steps`;
-        document.getElementById('pcolor').innerHTML = `${speciesData['color']['name']}`;
-        document.getElementById('pshape').innerHTML = `${speciesData['shape']['name']}`;
-        document.getElementById('pgrowth').innerHTML = `${speciesData['growth_rate']['name']}`;
+        document.getElementById('pcolor').innerHTML = `${nameAddUpperCase(speciesData['color']['name'])}`;
+        document.getElementById('pshape').innerHTML = `${nameAddUpperCase(speciesData['shape']['name'])}`;
+        document.getElementById('pgrowth').innerHTML = `${nameAddUpperCase(speciesData['growth_rate']['name'])}`;
         // Get properties that are accessible through pokemon-species data ends
     }
     else{
