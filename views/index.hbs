@@ -86,7 +86,7 @@
 
    <script type="text/javascript">
         (function() {
-        emailjs.init('cCfyYUa7sOfo0Bw85');
+        emailjs.init('{{user_ID}}');
         })();
         const subscribeButton = document.getElementById('subscribeButton');
         subscribeButton.onclick = () =>{
@@ -95,7 +95,7 @@
                 firstName:document.getElementById('nameInput').value,
                 email:document.getElementById('subscribeInput').value
             }
-            emailjs.send('service_ree2c7q', 'template_wrneoo3', templateParams, "cCfyYUa7sOfo0Bw85")
+            emailjs.send('{{service_ID}}', '{{template_ID}}', templateParams)
             .then(() =>{
                 document.getElementById('nameInput').value = "";
                 document.getElementById('subscribeInput').value = "";

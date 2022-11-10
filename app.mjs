@@ -71,7 +71,13 @@ let helpers = {
 }
 
 app.get('/', (req, res) => {
-    res.render('index', helpers);
+    let service_ID = `${process.env.SERVICE_ID}`;
+    let template_ID = `${process.env.TEMPLATE_ID}`;
+    res.render('index', {
+        section: helpers.section,
+        service_ID: service_ID,
+        template_ID:template_ID
+    });
 });
 
 app.get('/all', (req, res) => {
