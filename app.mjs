@@ -6,6 +6,7 @@ import mongoose from 'mongoose';
 import path from 'path';
 import * as auth from './auth.mjs';
 import { fileURLToPath } from 'url';
+import emailjs from 'emailjs-com';
 
 //On heroku, because we ignored .env file from committing to server, we set up environment variables on heroku dashboard config variables.
 const url = process.env.MONGODB_URI;

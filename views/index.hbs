@@ -64,18 +64,50 @@
 </div>
 <hr style = "padding:0; margin:0; color:rgba(56,106,187,1);"/>
 <div id = "email">
-    <div id = "subEmail" align = "center">
-        <h3>Keep Up With Our Latest News!</h3>
+    <form onsubmit="event.preventDefault();" id = "subEmail" align = "center">
+        <h3>Get Updated!</h3>
+        <p id = "subscribeMessage"></p>
+        <input type = "text" name = "subscribeName" id = "nameInput" placeholder = "First Name*" required>
         <input type = "text" name = "subscribeEmail" id = "subscribeInput" placeholder = "Email Account*" required>
         <p>By providing this information, you are opting to receive emails from  My Pokémon Story with news, 
         special offers, promotions and messages tailored to your interests, and you agree to the My Pokémon Story
          privacy policy and terms of use.<br>
         Fields marked with an asterisk (*) are required.</p>
-        <button>Submit</button>
-    </div>
-
+        <input id = "subscribeButton" type = "submit" value = "SUBMIT">
+    </form>
 </div>
 
 {{#section 'footer'}}
     <script src="../public/js/index.js"></script>
+
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+
+   <script type="text/javascript">
+        (function() {
+        emailjs.init('cCfyYUa7sOfo0Bw85');
+        })();
+        const subscribeButton = document.getElementById('subscribeButton');
+        subscribeButton.onclick = () =>{
+            let templateParams = {
+                message: 'You have successfully registered our weekly newsletter!',
+                firstName:document.getElementById('nameInput').value,
+                email:document.getElementById('subscribeInput').value
+            }
+            emailjs.send('service_ree2c7q', 'template_wrneoo3', templateParams, "cCfyYUa7sOfo0Bw85")
+            .then(() =>{
+                document.getElementById('nameInput').value = "";
+                document.getElementById('subscribeInput').value = "";
+                document.getElementById('subscribeMessage').innerText = "Successfully Subscribed!";
+                document.getElementById('subscribeMessage').style.color = "green";
+            }, (err) =>{
+                document.getElementById('nameInput').value = "";
+                document.getElementById('subscribeInput').value = "";
+                document.getElementById('subscribeMessage').innerText = "Subscription Failed. Try enter valid name/email!";
+                document.getElementById('subscribeMessage').style.color = "red";
+                console.log(err);
+            });
+        }
+    </script>
 {{/section}}

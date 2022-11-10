@@ -12,6 +12,7 @@ friendButton.onclick = () =>{
     window.location = `fyp`;
 }
 
+
 const see = () => {
     let windowTop = window.pageYOffset || document.documentElement.scrollTop;
     let elementTop = document.getElementById('login').offsetTop;

@@ -7,6 +7,7 @@ figure{
     height: 980px;
     width: 5498px;
     background-image: url(../image/wallpaper.jpg);
+    background-color:white;
     background-repeat: repeat-x;
     animation-name: move;
     animation-duration:120s;
@@ -48,7 +49,6 @@ figure{
     position:absolute;
     top: 480px;
     left:25%;
-
 }
 
 #subtitle p, button{
@@ -252,6 +252,10 @@ html,body
     width: 100%;
     margin: 0px;
     padding: 0px;
+}
+
+section{
+    background-color:white;
 }
 
 /*#wallpaper{
