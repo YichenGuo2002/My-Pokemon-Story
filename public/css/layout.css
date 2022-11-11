@@ -132,11 +132,11 @@ nav .icon{
     flex-direction: row;
     align-items: center; 
     text-align: center;
-    gap: 10px;
 }
 
 #userPanel a{
-    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 #userPanel h3{
@@ -220,3 +220,6 @@ input:-webkit-autofill:active{
     -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
+button:focus{  
+    box-shadow: 0 0 5px var(--main-text-color);
+}

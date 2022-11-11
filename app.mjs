@@ -56,7 +56,7 @@ app.use((req, res, next) => {
     // now you can use {{user}} in your template!
     res.locals.user = req.session.user;
     next();
-  });
+});
 
 app.use(auth.authRequired(['/list']));
 app.use(auth.authRequired(['/journey']));
@@ -73,10 +73,12 @@ let helpers = {
 app.get('/', (req, res) => {
     let service_ID = `${process.env.SERVICE_ID}`;
     let template_ID = `${process.env.TEMPLATE_ID}`;
+    let user_ID = `${process.env.USER_ID}`;
     res.render('index', {
         section: helpers.section,
         service_ID: service_ID,
-        template_ID:template_ID
+        template_ID:template_ID,
+        user_ID: user_ID
     });
 });
 

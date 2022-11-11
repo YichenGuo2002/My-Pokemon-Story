@@ -42,3 +42,8 @@
 section{
     background-color:aliceblue;
 }
+
+#allLink{
+    background-color:var(--main-text-color);
+    color: aliceblue;
+}
