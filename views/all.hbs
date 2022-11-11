@@ -6,7 +6,7 @@
 
     <div id = "allPictures" style = "padding: 20px;"> </div>
     
-    <div id = "pagePanel">
+    <div id = "pagePanel" style = "padding: 20px;">
         <div id = "pagination">
             <a id = "previousPage"><button id = "previousButton">&lt; Previous</button></a>
             <div id = "paginationList">
@@ -16,8 +16,7 @@
     </div>
 
     <div class="tooltip">
-        <button id = "new">+</button>
-        <span class="tooltiptext">Tooltip text</span>
+        <button id = "newButton" class="tooltip" data-title ="User login is required to create Pokémon."><img id = "newIcon" src = "../public/image/icon/plus.png"></button>
     </div>
 
 {{#section 'footer'}}

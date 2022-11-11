@@ -1,6 +1,6 @@
 :root{
     --main-border-radius: 10px;
-    --main-text-color: rgba(56,106,187,1);
+    --main-text-color: rgb(56, 106, 187);
 }
 
 @font-face {

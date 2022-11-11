@@ -162,6 +162,11 @@ const displayPagination = async (pagination)=>{
     }
 }
 
+const newButton = document.getElementById('newButton');
+newButton.onclick = () => {
+    window.location = 'new';
+}
+
 window.onload = async function(){
     let urlQueryStrings = new URLSearchParams(window.location.search); //All query strings passed in
     let pagination;
@@ -176,3 +181,4 @@ window.onload = async function(){
         displayPagination(pagination);
     }
 }
+

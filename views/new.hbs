@@ -3,6 +3,88 @@
     <link rel="stylesheet" href="../public/css/new.css">
 {{/section}}
 
+<form method="POST" action="/new">
+	<h2>Create My Pokémon Now!</h2>
+	{{#if message}}
+	<div class="error">{{ message }}</div>
+	{{/if}}
+	<div>
+        <label for="type">Type:</label>
+		<input type="text" name="type" value="">
+	</div>
+	<div>
+        <label for="abilityName">Ability Name:</label>
+		<input type="text" name="abilityName" value="">
+	</div>
+    <div>
+        <label for="abilityDe">Ability Description:</label>
+		<input type="text" name="abilityDe" value="">
+	</div>
+    <div>
+        <label for="gender">Gender Ratio:</label>
+		<input type="text" name="gender" value="">% female
+	</div>
+    <div>
+        <label for="capture">Capture Rate:</label>
+		<input type="text" name="capture" value="">/255
+	</div>
+    <div>
+        <label for="egg">Egg Groups:</label>
+		<input type="text" name="egg" value="">
+	</div>
+    <div>
+        <label for="hatch">Initial Hatch Time:</label>
+		<input type="text" name="hatch" value="">steps
+	</div>
+    <div>
+        <label for="height">Height:</label>
+		<input type="text" name="height" value="">m
+	</div>
+    <div>
+        <label for="weight">Weight:</label>
+		<input type="text" name="weight" value="">kg
+	</div>
+    <div>
+        <label for="color">Color:</label>
+		<input type="text" name="color" value="">
+	</div>
+    <div>
+        <label for="shape">Shape:</label>
+		<input type="text" name="shape" value="">
+	</div>
+    <div>
+        <label for="base">Base Experience Gained When Capture:</label>
+		<input type="text" name="base" value="">
+	</div>
+    <div>
+        <label for="level">Level Growth Rate:</label>
+		<input type="text" name="level" value="">
+	</div>
+    <div>
+        <label for="statsType">Base Stats Type:</label>
+		<input type="text" name="statsType" value="">
+	</div>
+    <div>
+        <label for="statsValue">Base Stats:</label>
+		<input type="text" name="statsValue" value="">
+	</div>
+     <div>
+        <label for="statsEffort">Base Stats Effort:</label>
+		<input type="text" name="statsEffort" value="">
+	</div>
+    <div>
+        <label for="evolution">Evolution Charts:</label>
+		<input type="text" name="level" value="">
+	</div>
+	<div>
+		<input type="submit" value="LOGIN">
+	</div>
+	<div>
+		<p><a href = "find">Forget Your Password?</a><br />
+		<a href = "register">Create New Account</a></p>
+	</div>
+</form>
+
 {{#section 'footer'}}
     <script src="../public/js/new.js"></script>
 {{/section}}
