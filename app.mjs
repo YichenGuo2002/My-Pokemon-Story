@@ -33,7 +33,6 @@ app.use(session({
     saveUninitialized: true,
 }));
 const List = mongoose.model('List');
-const Pokemon = mongoose.model('Pokemon');
 
 const registrationMessages = {
     "EMAIL ALREADY EXISTS": "This email has been registered.", 
@@ -87,15 +86,69 @@ app.get('/all', (req, res) => {
 });
 
 app.get('/detail', (req, res) => {
-    res.render('detail', helpers);
+    if('user' in req.session){
+        List.find({user:req.session.user._id}).sort('-createdAt').exec((err, list) => {
+            res.render('detail', {
+                user: req.session.user,
+                list:list,
+                section: helpers.section
+            });
+          });
+    }
+    else{
+        res.render('detail', helpers);
+    }
 });
+
+app.post('/detail', (req, res) => {
+    let selectedID = req.body.list;
+    let selectedPokemon = Number(req.query.pId);
+    let selectedDescription = req.body.description;
+    List.updateOne(
+            {_id: selectedID},
+            { $push: { 
+                pokemons: selectedPokemon, 
+                descriptions: selectedDescription 
+            }}
+            ).then(() =>{
+                console.log(selectedPokemon, result.title, JSON.stringify(result.pokemons));
+                List.find({user:req.session.user._id}).sort('-createdAt').exec((err, list) => {
+                    res.render('detail',{
+                        section: helpers.section,
+                        list:list,
+                        message:"Successfully saved!",
+                        color:"green"
+                    });
+                })
+            }).catch((err) => {
+                List.find({user:req.session.user._id}).sort('-createdAt').exec((err, list) => {
+                    res.render('detail',{
+                        section: helpers.section,
+                        list:list,
+                        message:"Hey, error" + err,
+                        color:"red"
+                    });
+                })
+            })
+})
 
 app.get('/find', (req, res) => {
     res.render('find', helpers);
 });
 
-app.get('/journey', (req, res) => {
-    res.render('journey', helpers);
+app.get('/journey/:slug', (req, res) => {
+    List.findOne({slug:req.params.slug})
+    .populate('user')
+    .then((result) =>{
+        res.render('journey', {
+            list: result,
+            section: helpers.section
+        })
+    })
+    .catch((err)=>{
+      console.log(err);
+      res.redirect('/');
+    });
 });
 
 app.get('/layout', (req, res) => {
@@ -110,10 +163,6 @@ app.get('/list', (req, res) => {
             section: helpers.section
         });
       });
-});
-
-app.get('/new', (req, res) => {
-    res.render('new', helpers);
 });
 
 app.get('/register', (req, res) => {
@@ -212,7 +261,7 @@ app.post('/addList', (req, res) =>{
     list.save((err, listObject) =>{
         if(!err){
             req.session.user.list.push(listObject);
-            res.redirect('/');
+            res.redirect(`journey/${listObject.slug}`);
         }
         else{
             req.session.user.untitledList--;

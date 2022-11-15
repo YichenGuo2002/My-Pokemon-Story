@@ -3,6 +3,10 @@
     <link rel="stylesheet" href="../public/css/journey.css">
 {{/section}}
 
+    {{#each list.pokemons as pId}}
+        <p>{{this}}</p>
+    {{/each}}
+
 {{#section 'footer'}}
     <script src="../public/js/journey.js"></script>
 {{/section}}

@@ -11,8 +11,10 @@
                     <p id = "pn"></p>
                     <img id = "pimage" src="">
                 </div>
-                <button>Favorite</button>
-                <button>Add to My List</button>
+                <button id = "favoriteButton">Favorite</button>
+                <button id = "listButton">Add to My List</button>
+                <p style = "color:{{color}};">{{message}}</p>
+                <div id = "selectForm"></div>
             </div>
             <div id = "descriptionDiv">
                 <p>
@@ -66,4 +68,39 @@
 
 {{#section 'footer'}}
     <script src="../public/js/detail.js"></script>
+    <script type="text/javascript">
+        const favoriteButton = document.getElementById('favoriteButton');
+        const listButton = document.getElementById('listButton');
+        listButton.onclick = () =>{
+            {{#if user}}
+                const selectForm = document.getElementById('selectForm');
+                const urlQueryStrings = new URLSearchParams(window.location.search);
+                const pokemonId = Number(urlQueryStrings.get('pId'));
+                let selectString = `
+                    <form method="POST" action="/detail?pId=${pokemonId}" style = "padding: 15px; font-size: 20px; width: 420px; color:rgb(56, 106, 187);">
+                    <div>
+                        <label for="list" style = "width:100%; text-align:left; display:block;">Select a Pokémon List:</label>
+                        <select name="list" id="list" style = "width:100%;  border: 1px solid rgb(56, 106, 187); height: 40px;padding:5px;font-size: 20px;-webkit-text-fill-color:black; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;border-radius: 10px;align-items: center; ">
+                            {{#if list}}
+                                {{#each list as |l|}}
+                                <option value="{{_id}}">{{title}}</option>
+                                {{/each}}
+                            {{else}}
+                                <option disabled>This is empty. Try create your first list!</option>
+                            {{/if}}
+                        </select>
+                    </div>
+                    <div>
+                        <label for = "description" style = "width:100%; text-align:left;display:block;">Description:</label>
+                        <textarea type="text" name="description" placeholder="My story starts here:" style = "resize: none;width:100%;  border: 1px solid rgb(56, 106, 187); height: 100px;padding:5px;font-size: 20px;-webkit-text-fill-color:black; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;border-radius: 10px; justify-content:start; "></textarea>
+                    </div>
+                        <input type="submit" value="ADD" style = "font-size: 20px; width: 100%; padding-top:10px;padding-bottom:10px; border:1px solid rgb(56, 106, 187); margin-top:15px; -webkit-text-fill-color:rgb(56, 106, 187);font-family: 'Gill Sans Heavy';border-radius: 10px;align-items: center; ">
+                    </form>
+                    `;
+                selectForm.innerHTML = selectString;
+            {{else}}
+                window.location = "login";
+            {{/if}}
+        }
+    </script>
 {{/section}}
