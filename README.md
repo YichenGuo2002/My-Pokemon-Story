@@ -140,6 +140,7 @@ An Example Pokémon:
 * Researched and troubleshot deploying on heroku and connecting to MongoDB Atlas. Turned out that there should not be any brackets around the user password in MongoDB Connection String (.env), and .env files are not commited, so we set up config values in heroku dashboard.
 * Researched about javascript animation.
 * Researched about using EmailJS to send emails to users.
+* Researched about Pokemon information, updated the MongoDB schema to store all information.
 
 ## [Link to Initial Main Project File](app.mjs) 
 
