@@ -6,7 +6,6 @@ import mongoose from 'mongoose';
 import path from 'path';
 import * as auth from './auth.mjs';
 import { fileURLToPath } from 'url';
-import emailjs from 'emailjs-com';
 
 //On heroku, because we ignored .env file from committing to server, we set up environment variables on heroku dashboard config variables.
 const url = process.env.MONGODB_URI;
@@ -61,23 +60,23 @@ app.use(auth.authRequired(['/list']));
 app.use(auth.authRequired(['/journey']));
 app.use(auth.authRequired(['/new']));
 
-let helpers = {
+const helpers = {
     section: function(name, options){
-        if(!this._sections) this._sections = {};
+        if(!this._sections) {this._sections = {};}
         this._sections[name] = options.fn(this);
         return null;
     }
-}
+};
 
 app.get('/', (req, res) => {
-    let service_ID = `${process.env.SERVICE_ID}`;
-    let template_ID = `${process.env.TEMPLATE_ID}`;
-    let user_ID = `${process.env.USER_ID}`;
+    const serviceID = `${process.env.SERVICE_ID}`;
+    const templateID = `${process.env.TEMPLATE_ID}`;
+    const userID = `${process.env.USER_ID}`;
     res.render('index', {
         section: helpers.section,
-        service_ID: service_ID,
-        template_ID:template_ID,
-        user_ID: user_ID
+        service_ID: serviceID,
+        template_ID:templateID,
+        user_ID: userID
     });
 });
 
@@ -101,16 +100,16 @@ app.get('/detail', (req, res) => {
 });
 
 app.post('/detail', (req, res) => {
-    let selectedID = req.body.list;
-    let selectedPokemon = Number(req.query.pId);
-    let selectedDescription = req.body.description;
+    const selectedID = req.body.list;
+    const selectedPokemon = Number(req.query.pId);
+    const selectedDescription = req.body.description;
     List.updateOne(
             {_id: selectedID},
             { $push: { 
                 pokemons: selectedPokemon, 
                 descriptions: selectedDescription 
             }}
-            ).then(() =>{
+            ).then((result) =>{
                 console.log(selectedPokemon, result.title, JSON.stringify(result.pokemons));
                 List.find({user:req.session.user._id}).sort('-createdAt').exec((err, list) => {
                     res.render('detail',{
@@ -119,7 +118,7 @@ app.post('/detail', (req, res) => {
                         message:"Successfully saved!",
                         color:"green"
                     });
-                })
+                });
             }).catch((err) => {
                 List.find({user:req.session.user._id}).sort('-createdAt').exec((err, list) => {
                     res.render('detail',{
@@ -128,9 +127,9 @@ app.post('/detail', (req, res) => {
                         message:"Hey, error" + err,
                         color:"red"
                     });
-                })
-            })
-})
+                });
+            });
+});
 
 app.get('/find', (req, res) => {
     res.render('find', helpers);
@@ -143,7 +142,7 @@ app.get('/journey/:slug', (req, res) => {
         res.render('journey', {
             list: result,
             section: helpers.section
-        })
+        });
     })
     .catch((err)=>{
       console.log(err);
@@ -231,7 +230,7 @@ app.get('/list', (req, res) => {
 });
 
 app.post('/list', (req, res) => {
-    auth.endAuthenticatedSession (req, (err) =>{
+    auth.endAuthenticatedSession(req, (err) =>{
         if(!err) {
             res.redirect('/login'); 
           } else {
@@ -240,7 +239,7 @@ app.post('/list', (req, res) => {
                 message: 'Error ending authentication session: ' + err + "."
             }); 
           }
-    })
+    });
 });
 
 app.post('/addList', (req, res) =>{
@@ -252,7 +251,7 @@ app.post('/addList', (req, res) =>{
         req.session.user.untitledList++;
         title = `My Pokémon List #${req.session.user.untitledList}`;
     }
-    let list = new List({
+    const list = new List({
         user:req.session.user._id,
         title:title,
         public:false,
@@ -270,8 +269,8 @@ app.post('/addList', (req, res) =>{
                 message: 'Error creating new list: ' + err + "."
             }); 
         }
-    })
-})
+    });
+});
 
 app.get('/map', (req, res) => {
     res.render('map', helpers);
