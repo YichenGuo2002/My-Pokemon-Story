@@ -155,16 +155,6 @@ app.get('/layout', (req, res) => {
     res.render('layout', helpers);
 });
 
-app.get('/list', (req, res) => {
-    List.find({user:req.session.user._id}).sort('-createdAt').exec((err, list) => {
-        res.render('list', {
-            user: req.session.user,
-            list:list,
-            section: helpers.section
-        });
-      });
-});
-
 app.get('/register', (req, res) => {
     res.render('register', helpers);
 });
@@ -230,6 +220,16 @@ app.get('/fyp',(req, res) => {
     res.render('fyp', helpers);
 });
 
+app.get('/list', (req, res) => {
+    List.find({user:req.session.user._id}).sort('-createdAt').exec((err, list) => {
+        res.render('list', {
+            user: req.session.user,
+            list:list,
+            section: helpers.section
+        });
+      });
+});
+
 app.post('/list', (req, res) => {
     auth.endAuthenticatedSession (req, (err) =>{
         if(!err) {
@@ -272,5 +272,17 @@ app.post('/addList', (req, res) =>{
         }
     })
 })
+
+app.get('/map', (req, res) => {
+    res.render('map', helpers);
+});
+
+app.get('/policy', (req, res) => {
+    res.render('policy', helpers);
+});
+
+app.get('/terms', (req, res) => {
+    res.render('terms', helpers);
+});
 
 app.listen(process.env.PORT || 3000);

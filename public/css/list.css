@@ -1,0 +1,26 @@
+
+section{
+    background-color:aliceblue;
+}
+
+#listItems{
+    padding: 15px;
+}
+
+ol{
+    font-size:20px;
+}
+
+#createList, #outButton, #listItems input{
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    border:1px solid var(--main-text-color);
+    font-size: 20px;
+    width: max-content;
+    color:var(--main-text-color);
+    font-family: 'Gill Sans Heavy';
+    border-radius: var(--main-border-radius);
+}
+

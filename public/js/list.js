@@ -9,9 +9,13 @@ createList.onclick = () =>{
     listInput.type="text";
     listInput.name="listTitle";
     listInput.placeholder="Title";
+    listInput.style="border-top-right-radius:0;border-bottom-right-radius:0; margin-top:15px; margin-bottom:15px;";
+    listInput.style.setProperty("--c", "rgb(56, 106, 187)");
+    
     let listSubmit = document.createElement('input');
     listSubmit.type = "submit";
     listSubmit.value = "Create new empty list";
+    listSubmit.style = "border-top-left-radius:0;border-bottom-left-radius:0;";
 
     listForm.appendChild(listInput);
     listForm.appendChild(listSubmit);
