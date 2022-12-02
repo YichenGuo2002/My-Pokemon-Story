@@ -147,5 +147,6 @@ An Example Pokémon:
 ## Annotations / References Used
 
 1. [jw-paginate.js pagination algorithm](https://jasonwatmore.com/post/2018/08/07/javascript-pure-pagination-logic-in-vanilla-js-typescript) - (added pagination to /all pokemon page based on this algorithm)
-2. 
+2. [Background image scrolling horizontally](https://webmadewell.com/background-image-moving-as-scrolling/) - (added css animation to homepage)
+3. [EmailJS docs](https://www.emailjs.com/docs/) - (added automatic email response after form submission)
 
